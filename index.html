@@ -1,0 +1,128 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b1020" />
+  <meta name="description" content="Encurte links e gere QR Codes gratuitamente com Linkut." />
+  <title>Linkut — Encurtador de URLs</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="icon" href="linkutfavicon.ico" type="image/x-icon" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
+
+  <header class="navbar">
+    <a href="#" class="brand">
+      <span class="brand-icon">↗</span>
+      Linkut<span class="brand-dot">.</span>
+    </a>
+    <span class="free-badge">
+      <span class="status-dot"></span>
+      100% gratuito
+    </span>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">
+        <span>✦</span> SIMPLES. RÁPIDO. INTELIGENTE.
+      </div>
+
+      <h1>
+        Links menores.<br />
+        <span>Ideias maiores.</span>
+      </h1>
+
+      <p class="subtitle">
+        Transforme URLs enormes em links curtos e crie
+        QR Codes prontos para compartilhar.
+      </p>
+
+      <section class="tool-card">
+        <form id="url-form">
+          <label for="url-input">Sua URL original</label>
+
+          <div class="input-wrapper">
+            <span class="input-icon">↗</span>
+            <input
+              type="text"
+              id="url-input"
+              placeholder="https://exemplo.com/seu-link"
+              autocomplete="url"
+              required
+              aria-describedby="form-message"
+            />
+          </div>
+
+          <p id="form-message" class="form-message" role="status"></p>
+
+          <button type="submit" id="shorten-btn" class="primary-btn">
+            <span class="button-label">Encurtar minha URL</span>
+            <span class="button-arrow">→</span>
+          </button>
+        </form>
+
+        <div id="result" class="result hidden">
+          <div class="result-divider">
+            <span>SEU LINK ESTÁ PRONTO</span>
+          </div>
+
+          <div class="result-section">
+            <label for="short-url">Link encurtado</label>
+            <div class="short-link-box">
+              <a id="short-url" href="#" target="_blank"
+                 rel="noopener noreferrer"></a>
+              <button id="copy-btn" class="icon-btn"
+                type="button" aria-label="Copiar link">⧉</button>
+            </div>
+          </div>
+
+          <div class="qr-section">
+            <div class="qr-info">
+              <h2>Seu QR Code</h2>
+              <p>Escaneie ou compartilhe sua URL.</p>
+              <button id="download-btn" class="secondary-btn"
+                type="button">↓ Baixar QR Code</button>
+            </div>
+            <div id="qrcode" class="qr-frame"
+              aria-label="QR Code do link encurtado"></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="features">
+        <div class="feature">
+          <span class="feature-icon">⚡</span>
+          <div><strong>Rápido</strong><small>Sem complicação</small></div>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">⌘</span>
+          <div><strong>QR Code</strong><small>Pronto para baixar</small></div>
+        </div>
+        <div class="feature">
+          <span class="feature-icon">♡</span>
+          <div><strong>Gratuito</strong><small>Sem assinatura</small></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Desenvolvido por <a href="https://briciodev.github.io/portfolio/" target="_blank"><span>Fabricio</span></a></p>
+    <p>© <span id="year"></span> Linkut</p>
+  </footer>
+
+  <div id="toast" class="toast" role="status"
+    aria-live="polite"></div>
+</body>
+</html>
